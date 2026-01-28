@@ -50,6 +50,7 @@ body { background:black; overflow-x:hidden; font-family:"Helvetica Neue", sans-s
   align-items:center;
   text-align:center;
   opacity:0;
+  color:white;
   z-index: 1001; /* above everything */
   padding: 2vw;
 }
