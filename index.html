@@ -3,8 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Dystopian Intervention</title>
-
-<!-- CSS -->
 <link rel="stylesheet" href="styles.css">
 
 <!-- GSAP -->
@@ -16,12 +14,12 @@
 <!-- Intro Text -->
 <div class="intro-text">FROM CRADLE TO COFFIN</div>
 
-<!-- Image Stage -->
+<!-- Background Image Stage -->
 <div class="stage">
-  <img class="image" src="images/Smart_Cradle.jpg" alt="Smart Cradle">
-  <img class="image" src="images/Toddler_2056.jpg" alt="Toddler 2056">
-  <img class="image" src="images/Nursery_2056.jpg" alt="Nursery 2056">
-  <img class="image" src="images/Orphanage_2100.jpg" alt="Orphanage 2100">
+  <div class="bg-image" data-src="images/Smart_Cradle.jpg"></div>
+  <div class="bg-image" data-src="images/Toddler_2056.jpg"></div>
+  <div class="bg-image" data-src="images/Nursery_2056.jpg"></div>
+  <div class="bg-image" data-src="images/Orphanage_2100.jpg"></div>
 </div>
 
 <!-- Fade-to-black overlay -->
@@ -31,21 +29,3 @@
 <div class="outro-text">
   <div class="outro-main">
     A speculative visage exploring the future of AI and automation in childcare.<br>
-    Conceptualized and coded in collaboration with Chat-GPT.
-  </div>
-  <div class="outro-bottom">STR 2026</div>
-</div>
-
-<!-- Background Audio -->
-<audio id="static-audio" autoplay loop>
-  <source src="images/static.mp3" type="audio/mpeg">
-</audio>
-
-<!-- Scroll space to drive ScrollTrigger -->
-<div class="scroll-space"></div>
-
-<!-- JS -->
-<script src="script.js"></script>
-
-</body>
-</html>
