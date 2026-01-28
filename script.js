@@ -43,16 +43,24 @@ ScrollTrigger.create({
       }
     });
 
-    // --- Fade to black + outro ---
-    if(progress > 1 - fadeDuration){
-      const fadeProgress = (progress - (1 - fadeDuration)) / fadeDuration;
-      fadeOverlay.style.opacity = fadeProgress;
-      images[numImages-1].style.opacity = 1;
-      images[numImages-1].style.transform = `scale(1.3)`;
-      outroText.style.opacity = fadeProgress;
-    } else {
-      fadeOverlay.style.opacity = 0;
-      outroText.style.opacity = 0;
+    // At the fade-to-black section
+if(progress > 1 - fadeDuration){
+  const fadeProgress = (progress - (1 - fadeDuration)) / fadeDuration;
+  fadeOverlay.style.opacity = fadeProgress;
+
+  const lastImg = images[numImages-1];
+  lastImg.style.opacity = 1;
+  lastImg.style.transform = `scale(1.3)`;
+
+  // Fade in outro text children
+  document.querySelector(".outro-main").style.opacity = fadeProgress;
+  document.querySelector(".outro-bottom").style.opacity = fadeProgress;
+
+} else {
+  fadeOverlay.style.opacity = 0;
+  document.querySelector(".outro-main").style.opacity = 0;
+  document.querySelector(".outro-bottom").style.opacity = 0;
+}
     }
   }
 });
