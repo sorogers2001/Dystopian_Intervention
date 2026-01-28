@@ -22,9 +22,9 @@ ScrollTrigger.create({
     images.forEach((img, i) => {
       if(i === index){
         img.style.opacity = 1;
-        // zoom from 1 → 1.15 over scroll progress of that image
+        // zoom from 1 → 1.30 over scroll progress of that image
         const localProgress = (progress*totalImages - index);
-        const scale = 1 + 0.15 * localProgress;
+        const scale = 1 + 0.30 * localProgress;
         img.style.transform = `scale(${scale})`;
       } else {
         img.style.opacity = 0;
@@ -32,8 +32,8 @@ ScrollTrigger.create({
       }
     });
 
-    // Fade to black in last 10%
-    if(progress > 0.9){
+    // Fade to black in last 5%
+    if(progress > 0.95){
       fadeOverlay.style.opacity = (progress-0.9)/0.1;
     } else {
       fadeOverlay.style.opacity = 0;
