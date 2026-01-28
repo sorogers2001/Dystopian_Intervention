@@ -10,7 +10,6 @@
   <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
 </head>
 <body>
-
   <!-- Fixed visual stage -->
   <div class="stage">
     <img class="image active" src="images/Smart_Cradle.jpg" />
@@ -19,27 +18,11 @@
     <img class="image" src="images/Orphanage_2100.jpg" />
   </div>
 
-  <!-- Scroll sections -->
-  <section class="panel">
-    <h2>2056</h2>
-    <p>Automation replaces care.</p>
-  </section>
+  <!-- Scroll sections as invisible triggers only -->
+  <div class="scroll-trigger" style="height: 400vh;"></div>
 
-  <section class="panel">
-    <h2>Early Optimization</h2>
-    <p>Learning begins before language.</p>
-  </section>
-
-  <section class="panel">
-    <h2>Mass Distribution</h2>
-    <p>Design diverges by class.</p>
-  </section>
-
-  <section class="panel">
-    <h2>2100</h2>
-    <p>The systems remain. The children do not.</p>
-  </section>
-
+  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
