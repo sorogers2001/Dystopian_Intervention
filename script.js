@@ -44,24 +44,24 @@ ScrollTrigger.create({
     });
 
     // --- Fade last image to black and then show outro ---
-    if(progress > 1 - fadeDuration){
-      const fadeProgress = (progress - (1 - fadeDuration)) / fadeDuration;
+   if(progress > 1 - fadeDuration){
+  const fadeProgress = (progress - (1 - fadeDuration)) / fadeDuration;
 
-      // Fade overlay to black
-      fadeOverlay.style.opacity = fadeProgress;
+  // Fade the last image out to black
+  images[numImages-1].style.opacity = 1 - fadeProgress;
 
-      // Fade out last image underneath
-      images[numImages-1].style.opacity = 1 - fadeProgress;
-      images[numImages-1].style.transform = `scale(1.3)`; // keep zoom
+  // Fade overlay to ensure black background
+  fadeOverlay.style.opacity = fadeProgress;
 
-      // Fade in outro text on top of black
-      outroMain.style.opacity = fadeProgress;
-      outroBottom.style.opacity = fadeProgress;
+  // Fade in outro text
+  outroMain.style.opacity = fadeProgress;
+  outroBottom.style.opacity = fadeProgress;
+} else {
+  fadeOverlay.style.opacity = 0;
+  images[numImages-1].style.opacity = 1; // fully visible before fade
+  outroMain.style.opacity = 0;
+  outroBottom.style.opacity = 0;
+}
 
-    } else {
-      fadeOverlay.style.opacity = 0;
-      outroMain.style.opacity = 0;
-      outroBottom.style.opacity = 0;
-    }
   }
 });
