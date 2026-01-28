@@ -30,6 +30,12 @@ body { background:black; overflow-x:hidden; font-family:"Helvetica Neue", sans-s
   transition: opacity 0.5s ease, transform 0.3s ease;
 }
 
+.image {
+  object-fit: contain;
+  object-position: center center; /* centers image content */
+  transform-origin: center center; /* zoom from center */
+}
+
 .fade-to-black {
   position:fixed;
   top:0; left:0;
