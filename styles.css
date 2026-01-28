@@ -30,6 +30,6 @@ body { background:black; overflow-x:hidden; }
 audio { display:none; }
 
 .scroll-space {
-  height: 600vh; /* slower scroll, more space per image */
+  height: 1000vh; /* slower scroll, more space per image */
 }
 
