@@ -1,71 +1,107 @@
-* { margin:0; padding:0; box-sizing:border-box; }
-body { background:black; overflow-x:hidden; font-family:"Helvetica Neue", sans-serif; }
 
-.intro-text {
-  position: fixed;
-  top:50%;
-  left:50%;
-  transform: translate(-50%, -50%);
-  font-size: 3vw;
-  text-align:center;
-  color:white;
-  z-index: 1000; /* above everything */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+body {
+  background: black;
+  overflow-x: hidden;
+  font-family: "Helvetica Neue", sans-serif;
+}
+
+/* Intro text */
+.intro-text {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3vw;
+  text-align: center;
+  color: white;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+/* Container for images */
 .stage {
   position: fixed;
-  top:0; left:0;
-  width:100%; height:100vh;
-  overflow:hidden;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
   z-index: 1;
 }
 
+/* Individual images */
 .image {
-  position:absolute;
-  top:0; left:0;
-  width:100%; height:100%;
-  object-fit:contain;
-  opacity:0;
-  transform: scale(1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;          /* keep full image visible */
+  object-position: center center; /* center image */
+  transform-origin: center center; /* zoom from center */
+  opacity: 0;
   transition: opacity 0.5s ease, transform 0.3s ease;
 }
 
-.image {
-  object-fit: contain;
-  object-position: center center; /* centers image content */
-  transform-origin: center center; /* zoom from center */
-}
-
+/* Fade-to-black overlay */
 .fade-to-black {
-  position:fixed;
-  top:0; left:0;
-  width:100%; height:100%;
-  background:black;
-  opacity:0;
-  pointer-events:none;
-  z-index:900; /* below outro */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 900; /* behind outro text */
 }
 
+/* Outro text container */
 .outro-text {
-  position:fixed;
-  top:0; left:0;
-  width:100%; height:100%;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  opacity:0;
-  z-index: 1001; /* above everything */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 1001; /* on top of everything */
+  pointer-events: none;
   padding: 2vw;
 }
 
-.outro-main { font-size:2vw; line-height:1.5; color:white; opacity:0; }
-.outro-bottom { position:absolute; bottom:2vw; font-size:1.5vw; color:white; opacity:0; }
-.fade-to-black { position:fixed; top:0; left:0; width:100%; height:100%; background:black; opacity:0; pointer-events:none; z-index:900; }
-.outro-text { position:fixed; top:0; left:0; width:100%; height:100%; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; z-index:1001; padding:2vw; }
+/* Outro main text */
+.outro-main {
+  font-size: 2vw;
+  line-height: 1.5;
+  color: white;
+  opacity: 0; /* controlled by JS */
+}
 
+/* Outro bottom text (STR 2026) */
+.outro-bottom {
+  position: absolute;
+  bottom: 2vw;
+  font-size: 1.5vw;
+  color: white;
+  opacity: 0; /* controlled by JS */
+}
 
-audio { display:none; }
+/* Hide default audio controls */
+audio {
+  display: none;
+}
 
-.scroll-space { height: 1200vh; } /* adjust for slower scroll */
+/* Scroll space to drive ScrollTrigger */
+.scroll-space {
+  height: 1200vh; /* very slow, cinematic scroll */
+}
