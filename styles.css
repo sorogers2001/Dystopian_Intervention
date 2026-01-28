@@ -15,7 +15,7 @@ body { background:black; overflow-x:hidden; font-family:"Helvetica Neue", sans-s
   pointer-events:none;
 }
 
-/* Stage for backgrounds */
+/* Stage for images */
 .stage {
   position: fixed;
   top:0; left:0;
@@ -25,17 +25,17 @@ body { background:black; overflow-x:hidden; font-family:"Helvetica Neue", sans-s
   z-index:10;
 }
 
-/* Individual background images */
-.bg-image {
-  position:absolute;
+/* Images */
+.image {
+  position: absolute;
   top:0; left:0;
   width:100%;
   height:100%;
-  background-size: contain;
-  background-position: center center;
-  background-repeat: no-repeat;
+  object-fit: contain;
+  transform-origin:center center;
   opacity:0;
-  transform: scale(1);
+  z-index:10;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 /* Fade-to-black overlay */
