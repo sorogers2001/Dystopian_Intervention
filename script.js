@@ -8,7 +8,7 @@ const outroMain = document.querySelector(".outro-main");
 const outroBottom = document.querySelector(".outro-bottom");
 
 const numImages = images.length;
-const fadeDuration = 0.05; // last 5% for fade
+const fadeDuration = 0.15; // 15% of scroll instead of 5%
 
 // Fade in audio
 gsap.to(audio, {volume:0.1, duration:3});
@@ -44,13 +44,13 @@ ScrollTrigger.create({
     });
 
     // --- Fade last image to black and then show outro ---
-   if(progress > 1 - fadeDuration){
+  if(progress > 1 - fadeDuration){
   const fadeProgress = (progress - (1 - fadeDuration)) / fadeDuration;
 
-  // Fade the last image out to black
+  // Fade last image out
   images[numImages-1].style.opacity = 1 - fadeProgress;
 
-  // Fade overlay to ensure black background
+  // Fade black overlay
   fadeOverlay.style.opacity = fadeProgress;
 
   // Fade in outro text
@@ -58,7 +58,7 @@ ScrollTrigger.create({
   outroBottom.style.opacity = fadeProgress;
 } else {
   fadeOverlay.style.opacity = 0;
-  images[numImages-1].style.opacity = 1; // fully visible before fade
+  images[numImages-1].style.opacity = 1;
   outroMain.style.opacity = 0;
   outroBottom.style.opacity = 0;
 }
