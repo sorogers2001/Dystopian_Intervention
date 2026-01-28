@@ -53,10 +53,11 @@ body { background:black; overflow-x:hidden; font-family:"Helvetica Neue", sans-s
   color:white;
   z-index: 1001; /* above everything */
   padding: 2vw;
+  mix-blend-mode: normal;
 }
 
-.outro-main { font-size:2vw; line-height:1.5; }
-.outro-bottom { position:absolute; bottom:2vw; font-size:1.5vw; }
+.outro-main { font-size:2vw; line-height:1.5; color:white; }
+.outro-bottom { position:absolute; bottom:2vw; font-size:1.5vw; color:white; }
 
 audio { display:none; }
 
