@@ -1,5 +1,5 @@
 * { margin:0; padding:0; box-sizing:border-box; }
-body { background:black; overflow-x:hidden; font-family: "Helvetica Neue", sans-serif; color:white; }
+body { background:black; overflow-x:hidden; font-family:"Helvetica Neue", sans-serif; }
 
 .intro-text {
   position: fixed;
@@ -7,9 +7,9 @@ body { background:black; overflow-x:hidden; font-family: "Helvetica Neue", sans-
   left:50%;
   transform: translate(-50%, -50%);
   font-size: 3vw;
-  text-align: center;
-  z-index: 100;
-  opacity:1;
+  text-align:center;
+  color:white;
+  z-index: 1000; /* above everything */
 }
 
 .stage {
@@ -17,7 +17,7 @@ body { background:black; overflow-x:hidden; font-family: "Helvetica Neue", sans-
   top:0; left:0;
   width:100%; height:100vh;
   overflow:hidden;
-  z-index: 0;
+  z-index: 1;
 }
 
 .image {
@@ -27,7 +27,7 @@ body { background:black; overflow-x:hidden; font-family: "Helvetica Neue", sans-
   object-fit:contain;
   opacity:0;
   transform: scale(1);
-  transition: opacity 0.6s ease, transform 0.3s ease;
+  transition: opacity 0.5s ease, transform 0.3s ease;
 }
 
 .fade-to-black {
@@ -35,35 +35,28 @@ body { background:black; overflow-x:hidden; font-family: "Helvetica Neue", sans-
   top:0; left:0;
   width:100%; height:100%;
   background:black;
-  pointer-events:none;
   opacity:0;
+  pointer-events:none;
+  z-index:900; /* below outro */
 }
 
 .outro-text {
-  position: fixed;
+  position:fixed;
   top:0; left:0;
   width:100%; height:100%;
   display:flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
   text-align:center;
   opacity:0;
-  z-index: 200;
+  z-index: 1001; /* above everything */
   padding: 2vw;
 }
 
-.outro-main {
-  font-size: 2vw;
-  line-height:1.5;
-}
-
-.outro-bottom {
-  position: absolute;
-  bottom: 2vw;
-  font-size:1.5vw;
-}
+.outro-main { font-size:2vw; line-height:1.5; }
+.outro-bottom { position:absolute; bottom:2vw; font-size:1.5vw; }
 
 audio { display:none; }
 
-.scroll-space { height:1200vh; }
+.scroll-space { height: 1200vh; } /* adjust for slower scroll */
