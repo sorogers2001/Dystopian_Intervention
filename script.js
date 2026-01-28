@@ -4,14 +4,14 @@ const images = gsap.utils.toArray(".image");
 const fadeOverlay = document.querySelector(".fade-to-black");
 const audio = document.getElementById("static-audio");
 const introText = document.querySelector(".intro-text");
-const outroText = document.querySelector(".outro-text");
+const outroMain = document.querySelector(".outro-main");
+const outroBottom = document.querySelector(".outro-bottom");
 
-// fade in audio
-gsap.to(audio, {volume:0.1, duration:3});
-
-// Total scroll
 const numImages = images.length;
 const fadeDuration = 0.05; // last 5% for fade
+
+// Fade in audio
+gsap.to(audio, {volume:0.1, duration:3});
 
 ScrollTrigger.create({
   trigger: ".scroll-space",
@@ -43,24 +43,25 @@ ScrollTrigger.create({
       }
     });
 
-    // At the fade-to-black section
-if(progress > 1 - fadeDuration){
-  const fadeProgress = (progress - (1 - fadeDuration)) / fadeDuration;
-  fadeOverlay.style.opacity = fadeProgress;
+    // --- Fade last image to black and then show outro ---
+    if(progress > 1 - fadeDuration){
+      const fadeProgress = (progress - (1 - fadeDuration)) / fadeDuration;
 
-  const lastImg = images[numImages-1];
-  lastImg.style.opacity = 1;
-  lastImg.style.transform = `scale(1.3)`;
+      // Fade overlay to black
+      fadeOverlay.style.opacity = fadeProgress;
 
-  // Fade in outro text children
-  document.querySelector(".outro-main").style.opacity = fadeProgress;
-  document.querySelector(".outro-bottom").style.opacity = fadeProgress;
+      // Fade out last image underneath
+      images[numImages-1].style.opacity = 1 - fadeProgress;
+      images[numImages-1].style.transform = `scale(1.3)`; // keep zoom
 
-} else {
-  fadeOverlay.style.opacity = 0;
-  document.querySelector(".outro-main").style.opacity = 0;
-  document.querySelector(".outro-bottom").style.opacity = 0;
-}
+      // Fade in outro text on top of black
+      outroMain.style.opacity = fadeProgress;
+      outroBottom.style.opacity = fadeProgress;
+
+    } else {
+      fadeOverlay.style.opacity = 0;
+      outroMain.style.opacity = 0;
+      outroBottom.style.opacity = 0;
     }
   }
 });
